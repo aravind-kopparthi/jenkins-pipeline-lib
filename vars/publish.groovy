@@ -18,7 +18,7 @@ pipeline {
             steps {
 
                 sh 'jfrog rt mvn -f /path/to/pom.xml clean install' // build & deploy artifacts
-
+                sh 'jfrog rt upload --flat=false "${bamboo.public.name-update-site}/*" p2-release-local/'
                 sh 'jfrog rt bp' // publish build info
 
             }
